@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:src="@drawable/image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imgViewSync"
+            android:adjustViewBounds="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnPrev"
+            android:text="Назад" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnPlay"
+            android:text="Пауза" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnNext"
+            android:text="Вперед" />
+        <TextView
+            android:text="Text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtViewSyncState"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/lnrLayoutAudios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="2dp"
+                android:id="@+id/lnrLayoutAudioCotnainer" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

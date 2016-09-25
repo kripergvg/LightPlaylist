@@ -1,0 +1,27 @@
+﻿.lightplaylist_btn_sync {
+    display: none;
+    position: absolute;
+    left: -9px;
+    top: 9px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+
+    .audio_row:hover .lightplaylist_btn_sync {
+        display: block;
+    }
+
+    .lightplaylist_btn_sync:hover {
+        background-color: #e0e0e0;
+    }
+
+/*.lightplaylist_btn_sync div {
+    left: -7px;
+    top: 6px;
+    background-color: #becac0;
+    padding: 4px;
+    position: absolute;
+    cursor: pointer;
+}*/

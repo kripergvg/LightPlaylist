@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightPlaylist", "LightPlaylist\LightPlaylist.csproj", "{9D020140-D1D3-45CA-BA58-66223187F591}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Playlist", "Playlist", "{4F733DDE-E656-496B-BB6B-BB1393C92190}"
+	ProjectSection(SolutionItems) = preProject
+		Playlist\content.js = Playlist\content.js
+		Playlist\jquery-3.1.1.min.js = Playlist\jquery-3.1.1.min.js
+		Playlist\manifest.json = Playlist\manifest.json
+		Playlist\popup.html = Playlist\popup.html
+		Playlist\styles.css = Playlist\styles.css
+		Playlist\sync.png = Playlist\sync.png
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayList.Android", "PlayList.Android\PlayList.Android.csproj", "{389EA06F-4F91-4A58-8D72-A92524DF73D3}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{5F3825A5-7FF8-4B04-85B9-96774ABDC576}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shared\Shared.projitems*{5f3825a5-7ff8-4b04-85b9-96774abdc576}*SharedItemsImports = 13
+		Shared\Shared.projitems*{9d020140-d1d3-45ca-ba58-66223187f591}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D020140-D1D3-45CA-BA58-66223187F591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D020140-D1D3-45CA-BA58-66223187F591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D020140-D1D3-45CA-BA58-66223187F591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D020140-D1D3-45CA-BA58-66223187F591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{389EA06F-4F91-4A58-8D72-A92524DF73D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{389EA06F-4F91-4A58-8D72-A92524DF73D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{389EA06F-4F91-4A58-8D72-A92524DF73D3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{389EA06F-4F91-4A58-8D72-A92524DF73D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{389EA06F-4F91-4A58-8D72-A92524DF73D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{389EA06F-4F91-4A58-8D72-A92524DF73D3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
