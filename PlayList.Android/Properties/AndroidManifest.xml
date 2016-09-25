@@ -2,5 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="PlayList.Android.PlayList.Android" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="16" />
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
-	<application android:label="PlayList.Android"></application>
+	<application android:label="PlayList.Android" android:icon="@drawable/Icon"></application>
 </manifest>

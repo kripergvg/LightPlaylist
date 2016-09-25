@@ -5,25 +5,25 @@
     android:layout_height="30dp"
     android:layout_marginBottom="2dp"
     android:id="@+id/lnrLayoutAudioCotnainer">
-  <TextView
-                    android:text="Text"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8"
-                    android:id="@+id/audioName"
-                    android:background="#000"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp" />
-  <Button
-      android:layout_width="0dp"
-      android:layout_weight="1"
-      android:id="@+id/audioDelete"
-      android:layout_height="match_parent"
-      android:text="Удалить" />
-  <Button
-      android:layout_width="0dp"
-      android:layout_weight="1"
-      android:id="@+id/audioDeleteWithRemote"
-      android:layout_height="match_parent"
-      android:text="R Sync" />
+    <TextView
+        android:text="Text"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:id="@+id/audioName"
+        android:background="#000"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp" />
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:id="@+id/audioDelete"
+        android:layout_height="30dp"
+        android:text="Удалить" />
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:id="@+id/audioDeleteWithRemote"
+        android:layout_height="30dp"
+        android:text="R Sync" />
 </LinearLayout>

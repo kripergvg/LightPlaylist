@@ -21,6 +21,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shp
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shared\Shared.projitems*{389ea06f-4f91-4a58-8d72-a92524df73d3}*SharedItemsImports = 4
 		Shared\Shared.projitems*{5f3825a5-7ff8-4b04-85b9-96774abdc576}*SharedItemsImports = 13
 		Shared\Shared.projitems*{9d020140-d1d3-45ca-ba58-66223187f591}*SharedItemsImports = 4
 	EndGlobalSection
