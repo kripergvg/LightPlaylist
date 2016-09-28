@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Timers;
 using Android.App;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.Media;
 using Android.Views;
 using Android.Widget;
@@ -30,6 +32,8 @@ namespace PlayList.Android
         private MediaPlayer _mediaPlayer;
         private SyncApiService _syncApiService;
         private TextView _txtViewSyncState;
+        private SeekBar _seekBar;
+        private Timer _seekTimer;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -38,10 +42,26 @@ namespace PlayList.Android
             _mediaPlayer = new MediaPlayer();
             _syncApiService = new SyncApiService();
 
+            _seekTimer = new Timer(1000);
+            _seekTimer.Elapsed += (s, e) =>
+            {
+                UpdateTackPosition();
+            };
+            _seekTimer.Enabled = true;
+
             _syncRepository = new SyncRepository();
             _playlist = _syncRepository.Get().OrderByDescending(a => a.SyncDate).ToArray();
 
             var mainView = LayoutInflater.Inflate(Resource.Layout.Main, null);
+
+            _seekBar = mainView.FindViewById<SeekBar>(Resource.Id.skBrTrackPosition);
+            _seekBar.ProgressChanged += (s, e) =>
+            {
+                if (e.FromUser)
+                {
+                    _mediaPlayer.SeekTo(e.Progress);
+                }
+            };
 
             var imgViewSync = mainView.FindViewById<ImageView>(Resource.Id.imgViewSync);
             imgViewSync.Click += ImgViewSync_Click;
@@ -90,6 +110,18 @@ namespace PlayList.Android
             var lnrLayoutAudioCotnainer = lnrLayoutAudio.FindViewById<LinearLayout>(Resource.Id.lnrLayoutAudioCotnainer);
             lnrLayoutAudioCotnainer.Click += (s, e) => { PlayAudio(lnrLayoutAudio, localId); };
             return lnrLayoutAudioCotnainer;
+        }
+
+        private void UpdateTackPosition()
+        {
+            if (_mediaPlayer != null)
+            {
+                RunOnUiThread(() =>
+                {
+                    _seekBar.Max = _mediaPlayer.Duration;
+                    _seekBar.Progress = _mediaPlayer.CurrentPosition;
+                });
+            }
         }
 
         private void DisableSongView(View songView)
@@ -150,19 +182,34 @@ namespace PlayList.Android
 
         private void PlaySong()
         {
-            _mediaPlayer.Reset();
-            _mediaPlayer.SetDataSource(_songList[_currentSongIndex].Audio.Url);
-            _mediaPlayer.PrepareAsync();
-            _mediaPlayer.Start();
-            _mediaPlayer.Completion += (s, e) =>
+            if (File.Exists(_songList[_currentSongIndex].Audio.Path))
             {
-                BtnNext_Click(s, e);
-            };
+                _mediaPlayer.Release();
+                _mediaPlayer = new MediaPlayer();
+                _mediaPlayer.SetDataSource(_songList[_currentSongIndex].Audio.Path);
+                _mediaPlayer.Prepare();
+                _mediaPlayer.Start();
 
-            _mediaPlayer.BufferingUpdate += (s, e) =>
+                //TODO ПЗДЦ
+                foreach (var songViewModel in _songList)
+                {
+                    songViewModel.SongContainer.FindViewById<LinearLayout>(Resource.Id.lnrBgt).SetBackgroundColor(Color.ParseColor("#edeef0"));
+                }
+
+                _songList[_currentSongIndex].SongContainer.FindViewById<LinearLayout>(Resource.Id.lnrBgt).SetBackgroundColor(Color.ParseColor("#e0ebff"));
+               
+                UpdateTackPosition();
+
+                _mediaPlayer.Completion += (s, e) =>
+                {
+                    BtnNext_Click(s, e);
+                };
+            }
+            else
             {
-
-            };
+                Toast.MakeText(this, "Трека нет в файлах", ToastLength.Short).Show();
+                BtnNext_Click(this, EventArgs.Empty);
+            }
         }
 
         private async void ImgViewSync_Click(object sender, EventArgs e)

@@ -37,20 +37,35 @@
             android:gravity="center_vertical"
             android:paddingLeft="5dp" />
     </LinearLayout>
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
-            android:id="@+id/lnrLayoutAudios"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:id="@+id/lnrLayoutAudios"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginBottom="2dp"
-                android:id="@+id/lnrLayoutAudioCotnainer" />
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="2dp"
+                    android:id="@+id/lnrLayoutAudioCotnainer" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom">
+            <SeekBar
+                android:id="@+id/skBrTrackPosition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#507299" />
         </LinearLayout>
-    </ScrollView>
+    </FrameLayout>
 </LinearLayout>
