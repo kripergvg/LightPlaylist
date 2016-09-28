@@ -150,14 +150,18 @@ namespace PlayList.Android
 
         private void PlaySong()
         {
-            _mediaPlayer.Release();
-            _mediaPlayer = new MediaPlayer();
+            _mediaPlayer.Reset();
             _mediaPlayer.SetDataSource(_songList[_currentSongIndex].Audio.Url);
-            _mediaPlayer.Prepare();
+            _mediaPlayer.PrepareAsync();
             _mediaPlayer.Start();
             _mediaPlayer.Completion += (s, e) =>
             {
                 BtnNext_Click(s, e);
+            };
+
+            _mediaPlayer.BufferingUpdate += (s, e) =>
+            {
+
             };
         }
 
@@ -179,7 +183,6 @@ namespace PlayList.Android
             {
                 foreach (var newSong in newSongs)
                 {
-
 
                     Audio audio = await vkApiService.GetAudioById(newSong.Key);
                     //TODO Разобраться почему null
